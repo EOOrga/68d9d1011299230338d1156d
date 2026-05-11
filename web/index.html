@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fargeaula Ops is a local Android operations workspace for appointment booking, shipment logs, quality checks, and employee coordination.">
+  <meta name="theme-color" content="#061D52">
+  <title>Fargeaula Ops</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    :root {
+      --navy: #061d52;
+      --teal: #0a7a73;
+      --purple: #36206d;
+      --gold: #e1b34a;
+      --ink: #111827;
+      --muted: #667085;
+      --paper: #f5f7fb;
+      --line: #d9dee8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      position: fixed;
+      z-index: 5;
+      top: 0;
+      right: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px clamp(18px, 5vw, 64px);
+      color: #fff;
+      background: rgba(6, 29, 82, 0.74);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    nav a {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-items: end;
+      padding: 112px clamp(18px, 5vw, 64px) 64px;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(6, 29, 82, 0.92) 0%, rgba(6, 29, 82, 0.66) 42%, rgba(6, 29, 82, 0.14) 100%),
+        url("featured.png") center / cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 0.92rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 8vw, 6.5rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(1rem, 2vw, 1.28rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .button.primary {
+      border-color: var(--gold);
+      color: #1b1400;
+      background: var(--gold);
+    }
+
+    section {
+      padding: 52px clamp(18px, 5vw, 64px);
+    }
+
+    .section-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin: 0 0 24px;
+      color: var(--navy);
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      max-width: 720px;
+      margin: -10px 0 28px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .service {
+      min-height: 210px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .service strong {
+      display: block;
+      margin: 14px 0 8px;
+      color: var(--navy);
+      font-size: 1.08rem;
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--teal);
+      font-weight: 900;
+    }
+
+    .service:nth-child(2) .icon {
+      background: var(--gold);
+      color: #241800;
+    }
+
+    .service:nth-child(3) .icon {
+      background: var(--purple);
+    }
+
+    .service:nth-child(4) .icon {
+      background: var(--navy);
+    }
+
+    .band {
+      background: #fff;
+      border-block: 1px solid var(--line);
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .workflow-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .workflow-list li {
+      padding: 16px 18px;
+      border-left: 5px solid var(--gold);
+      border-radius: 8px;
+      background: var(--paper);
+      font-weight: 800;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--navy), var(--teal));
+    }
+
+    .contact h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: 0;
+    }
+
+    .contact p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    footer {
+      padding: 24px clamp(18px, 5vw, 64px);
+      color: #fff;
+      background: #04163f;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 860px) {
+      nav {
+        display: none;
+      }
+
+      .grid,
+      .workflow,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 82vh;
+        background:
+          linear-gradient(0deg, rgba(6, 29, 82, 0.94) 0%, rgba(6, 29, 82, 0.72) 50%, rgba(6, 29, 82, 0.2) 100%),
+          url("featured.png") center / cover no-repeat;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="favicon.png" alt="">
+      <span>Fargeaula Ops</span>
+    </div>
+    <nav aria-label="Site">
+      <a href="#services">Services</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">FOYER 3 EME AGE CLUB FARGEAULAIS</p>
+        <h1>Fargeaula Ops</h1>
+        <p>A local Android workspace for appointment booking, shipment follow-up, quality control, and team coordination across daily facility operations.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#services">View services</a>
+          <a class="button" href="mailto:support@foyerfargeaulais.app">Contact support</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-inner">
+        <h2 class="section-title">Four operational tools in one focused app.</h2>
+        <p class="section-copy">The Android app keeps the day organized without accounts, cloud sync, or external API connections.</p>
+        <div class="grid">
+          <article class="service">
+            <div class="icon">01</div>
+            <strong>Appointment booking</strong>
+            <p>Record visits, service slots, rooms, and handoff notes for reception and care teams.</p>
+          </article>
+          <article class="service">
+            <div class="icon">02</div>
+            <strong>Shipment log</strong>
+            <p>Track incoming references, vendors, expected arrival windows, and receiving status.</p>
+          </article>
+          <article class="service">
+            <div class="icon">03</div>
+            <strong>Quality checklist</strong>
+            <p>Review daily controls for reception, receiving, care floors, and administration.</p>
+          </article>
+          <article class="service">
+            <div class="icon">04</div>
+            <strong>Employee directory</strong>
+            <p>Keep shift coverage and internal contact notes available on the device.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="band">
+      <div class="section-inner workflow">
+        <div>
+          <h2 class="section-title">Built for repeated daily use.</h2>
+          <p class="section-copy">Fargeaula Ops opens directly into the current operational view and lets staff move between bookings, receiving, checks, and directory records.</p>
+        </div>
+        <ul class="workflow-list">
+          <li>Create and save local appointment or shipment records.</li>
+          <li>Mark bookings complete and shipments received.</li>
+          <li>Toggle quality checks as the day progresses.</li>
+          <li>Review settings and privacy notes without account setup.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div>
+        <h2>Support for FOYER 3 EME AGE CLUB FARGEAULAIS</h2>
+        <p>For app questions, release support, or privacy requests, use the support email below.</p>
+      </div>
+      <a class="button primary" href="mailto:support@foyerfargeaulais.app">support@foyerfargeaulais.app</a>
+    </section>
+  </main>
+
+  <footer>
+    Fargeaula Ops stores operational records locally on the Android device.
+  </footer>
+</body>
+</html>
