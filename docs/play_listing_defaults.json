@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "applications": {
+    "com.taziggg100.foyer_fargeaula_ops": {
+      "title": "Fargeaula Ops",
+      "short_description": "Coordinate bookings, shipments, quality checks, and staff notes in one local...",
+      "full_description": "Fargeaula Ops helps FOYER 3 EME AGE CLUB FARGEAULAIS organize recurring daily tasks from an Android phone. Staff can record appointment bookings, log incoming shipments, review quality controls, and keep a practical employee directory close at hand.\n\nThe app is built for local operations. Records are saved on the device, and the workflow does not require accounts, cloud sync, analytics, or external API connections.",
+      "source_screenshots": [
+        "docs/screens/1.png",
+        "docs/screens/2.png",
+        "docs/screens/3.png"
+      ],
+      "generated_from": "existing repository listing metadata and README",
+      "generated_at": "2026-10-02T21:22:00.903800+00:00"
+    }
+  }
+}
