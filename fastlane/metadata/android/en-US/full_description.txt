@@ -1,0 +1,3 @@
+Fargeaula Ops helps FOYER 3 EME AGE CLUB FARGEAULAIS organize recurring daily tasks from an Android phone. Staff can record appointment bookings, log incoming shipments, review quality controls, and keep a practical employee directory close at hand.
+
+The app is built for local operations. Records are saved on the device, and the workflow does not require accounts, cloud sync, analytics, or external API connections.
