@@ -28,7 +28,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.taziggg100.foyer_fargeaula_ops"
+        applicationId = "com.taz0.foyer_bilibili"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

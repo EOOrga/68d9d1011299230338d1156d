@@ -1,4 +1,4 @@
-name: foyer_fargeaula_ops
+name: foyer_bilibili
 description: "Local operations workspace for FOYER 3 EME AGE CLUB FARGEAULA."
 publish_to: 'none'
 version: 1.0.0+1
@@ -26,5 +26,5 @@ flutter_launcher_icons:
   android: true
   ios: false
   image_path: docs/icon.png
-  adaptive_icon_background: "#082660"
+  adaptive_icon_background: "#A6A6A6"
   adaptive_icon_foreground: docs/icon.png
