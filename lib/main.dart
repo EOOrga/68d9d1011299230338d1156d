@@ -443,7 +443,7 @@ class DashboardPage extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         SectionHeader(
-          title: 'Next priorities',
+          title: 'Fargeaula Ops',
           actionLabel: 'Bookings',
           onAction: onOpenAppointments,
         ),
